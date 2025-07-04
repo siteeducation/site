@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SITE - We Design Your Education</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: 
+        linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #3b82f6 50%, #1d4ed8 75%, #0ea5e9 100%),
+        url('https://i.postimg.cc/pXgZFTPT/site-bg.png');
+        background-size: 400% 400%, cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        animation: gradientShift 15s ease infinite;
+        min-height: 100vh;
+        overflow-x: hidden;
+    
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .liquid-blob {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .blob-1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 80%;
+            animation-delay: 0s;
+        }
+        
+        .blob-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 5%;
+            animation-delay: 2s;
+        }
+        
+        .blob-3 {
+            width: 100px;
+            height: 100px;
+            top: 80%;
+            right: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: rgb(255, 7, 189);
+            text-shadow: 0 2px 10px rgba(177, 172, 172, 0);
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 7, 189, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .logo img:hover {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 7, 189, 0.5);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: rgb(255, 17, 243);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(252, 253, 253, 0.395);
+            backdrop-filter: blur(10px);
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(66, 51, 125, 0.7), rgba(59, 130, 246, 0.6)), url('https://i.postimg.cc/pXgZFTPT/site-bg.png') center/cover;
+            background-blend-mode: overlay;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 3rem;
+            border-radius: 30px;
+            color: #ff0ed7;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(255, 1, 208, 0.253);
+            animation: slideUp 1s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideUp 1s ease-out 0.3s both;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease-out 0.6s both;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #1c2268, #1d4ed8);
+            color: rgb(253, 6, 188);
+            box-shadow: 0 10px 30px rgba(255, 5, 230, 0.2);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: rgb(255, 0, 221);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(7, 87, 245, 0.453);
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: rgb(255, 0, 204);
+            text-shadow: 0 2px 10px rgba(255, 0, 212, 0.3);
+        }
+        
+        .about-content {
+            text-align: center;
+            padding: 3rem;
+            border-radius: 30px;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: rgb(255, 0, 204);
+            text-shadow: 0 2px 10px rgba(255, 0, 212, 0.3);
+        }
+        
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .card {
+            padding: 2rem;
+            border-radius: 20px;
+            color: rgb(255, 255, 255);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #f60ea5;
+        }
+        
+        .card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #2c4e85, #320deb);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            animation: floatAround 20s linear infinite;
+        }
+        
+        .circle-1 {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            left: 10%;
+            animation-duration: 25s;
+        }
+        
+        .circle-2 {
+            width: 40px;
+            height: 40px;
+            top: 70%;
+            right: 15%;
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+        
+        .circle-3 {
+            width: 80px;
+            height: 80px;
+            top: 40%;
+            left: 70%;
+            animation-duration: 35s;
+        }
+        
+        @keyframes floatAround {
+            0% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(0px) rotate(180deg); }
+            75% { transform: translateY(20px) rotate(270deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Programs Section Background */
+        #programs {
+            background: 
+                linear-gradient(rgba(30, 60, 114, 0.8), rgba(21, 28, 255, 0.8)),
+                url('https://i.postimg.cc/pXgZFTPT/site-bg.png') center/cover;
+            background-attachment: fixed;
+        }
+        
+        /* Campus Section Background */
+        #campus {
+            background: 
+                linear-gradient(rgba(30, 60, 114, 0.8), rgba(22, 39, 227, 0.862)),
+                url('https://i.postimg.cc/pXgZFTPT/site-bg.png') center/cover;
+            background-attachment: fixed;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+        <div class="floating-circle circle-1"></div>
+        <div class="floating-circle circle-2"></div>
+        <div class="floating-circle circle-3"></div>
+    </div>
+    
+    <!-- Liquid Blobs -->
+    <div class="liquid-blob blob-1"></div>
+    <div class="liquid-blob blob-2"></div>
+    <div class="liquid-blob blob-3"></div>
+    
+    <!-- Header -->
+    <header class="glass">
+        <nav>
+            <div class="logo">
+                <img src="https://i.postimg.cc/x1vJ8Rh2/site-logo.png" alt="APS University Logo">
+                <span>SITE </span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#campus">Campus</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content glass">
+            <p>APS University </p>
+            <h1>Singrauli Institute of Technology Education</h1>
+            <p>We Design Your Education</p>
+            <div class="cta-buttons">
+                <a href="#admissions" class="btn btn-primary">Apply Now</a>
+                <a href="#programs" class="btn btn-secondary">Explore Programs</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="stats">
+            <div class="stat glass">
+                <div class="stat-number">25,000+</div>
+                <div class="stat-label">Students</div>
+            </div>
+            <div class="stat glass">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Programs</div>
+            </div>
+            <div class="stat glass">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Graduate Success</div>
+            </div>
+            <div class="stat glass">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>Singrauli Institute of Technical Education (SITE), established in August 2006, is a professional institution promoted by the Society for Women Awareness and Rural Economy Generation (registered under the M.P. Society Registration Act, 1973). It aims to prepare students for creative and constructive roles in modern society by providing high-quality education, life skills, and contemporary knowledge.</p>
+        </div>
+    </section>
+    
+    <!-- Programs Section -->
+    <section id="programs" class="section">
+        <h2>Academic Excellence</h2>
+        <div class="cards-grid">
+            <div class="card glass">
+                <h3>🎓 Undergraduate Programs</h3>
+                <p>Comprehensive bachelor's degrees across diverse fields including Engineering, Business, Arts, Sciences, and Technology. Build your foundation for success.</p>
+            </div>
+            <div class="card glass">
+                <h3>🔬 Graduate Studies</h3>
+                <p>Advanced master's and doctoral programs designed for research excellence and professional development in your chosen specialization.</p>
+            </div>
+            <div class="card glass">
+                <h3>💼 Professional Development</h3>
+                <p>Executive education and certificate programs for working professionals seeking to advance their careers and skills.</p>
+            </div>
+            <div class="card glass">
+                <h3>🌐 Online Learning</h3>
+                <p>Flexible digital education options that bring SITE C quality education to students worldwide.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Research Section -->
+    <section id="research" class="section">
+        <h2>Innovation & Research</h2>
+        <div class="cards-grid">
+            <div class="card glass">
+                <h3>🧬 Life Sciences</h3>
+                <p>Groundbreaking research in biotechnology, medicine, and environmental sciences that addresses global challenges.</p>
+            </div>
+            <div class="card glass">
+                <h3>🤖 Technology</h3>
+                <p>Cutting-edge developments in AI, robotics, cybersecurity, and emerging technologies shaping our future.</p>
+            </div>
+            <div class="card glass">
+                <h3>🌍 Sustainability</h3>
+                <p>Leading research in renewable energy, climate science, and sustainable development for a better tomorrow.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Campus Life Section -->
+    <section id="campus" class="section">
+        <h2>Vibrant Campus Life</h2>
+        <div class="cards-grid">
+            <div class="card glass">
+                <h3>🏠 Student Housing</h3>
+                <p>Modern residential facilities with state-of-the-art amenities, creating a home away from home for our students.</p>
+            </div>
+            <div class="card glass">
+                <h3>🎨 Arts & Culture</h3>
+                <p>Rich cultural programs, art galleries, theaters, and music venues that celebrate creativity and expression.</p>
+            </div>
+            <div class="card glass">
+                <h3>⚽ Sports & Recreation</h3>
+                <p>Championship athletics programs and comprehensive recreational facilities for all skill levels and interests.</p>
+            </div>
+            <div class="card glass">
+                <h3>🤝 Student Organizations</h3>
+                <p>Over 200 clubs and organizations providing opportunities for leadership, service, and personal growth.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Notification Board -->
+<div id="notification-board" class="glass" style="
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    width: 90%;
+    max-width: 800px;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    background: rgba(232, 233, 236, 0.325);
+    backdrop-filter: blur(20px);
+    color: #fafafa;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <strong>📢 Notice:</strong>
+            <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                <li>Admission open for session 2025-26</li>
+                <li>📄 Download syllabus from 'Programs' section</li>
+                <li>🧪 Workshop on AI & ML, July 15, 2025</li>
+            </ul>
+        </div>
+        <button onclick="document.getElementById('notification-board').style.display='none'" style="
+            background: none;
+            border: none;
+            color: #fa16d0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-left: 1rem;
+        " title="Close">&times;</button>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#admissions">Admissions</a>
+                <a href="#academics">Academics</a>
+                <a href="#research">Research</a>
+                <a href="#campus">Campus Life</a>
+                <a href="#alumni">Alumni</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>&copy; SITE Collage. We Design Your Education.</p>
+            <p>📍 site collage, Singrauli (MP) | 📞 +1-555-AURORA | ✉️ info@site.edu</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.3)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+                header.style.backdropFilter = 'blur(20px)';
+            }
+        });
+        
+        // Add interactive hover effects to cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.background = 'rgba(255, 255, 255, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+        
+        // Add animation to stats when they come into view
+        const observerOptions = {
+            threshold: 0.7
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    if (statNumber) {
+                        const finalNumber = statNumber.textContent;
+                        const isPercentage = finalNumber.includes('%');
+                        const isPlus = finalNumber.includes('+');
+                        const numValue = parseInt(finalNumber.replace(/[^\d]/g, ''));
+                        
+                        let current = 0;
+                        const increment = numValue / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= numValue) {
+                                current = numValue;
+                                clearInterval(timer);
+                            }
+                            
+                            let displayValue = Math.floor(current).toLocaleString();
+                            if (isPercentage) displayValue += '%';
+                            if (isPlus && current === numValue) displayValue += '+';
+                            
+                            statNumber.textContent = displayValue;
+                        }, 30);
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat').forEach(stat => {
+            observer.observe(stat);
+        });
+    </script>
+</body>
+</html>
